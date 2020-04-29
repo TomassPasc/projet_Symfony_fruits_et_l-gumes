@@ -19,6 +19,16 @@ class AlimentRepository extends ServiceEntityRepository
         parent::__construct($registry, Aliment::class);
     }
 
+
+    public function getAlimentParNbCalories($calorie){
+        return $this->createQueryBuilder('aliment') //équivaut à SELECT * form la table aliment
+        ->andWhere('aliment.calorie < :val')
+        ->setParameter('val', $calorie)
+        ->getQuery() //récuppère la query
+        ->getResult() //réccupère le résultat de la query
+        ;
+    }
+
     // /**
     //  * @return Aliment[] Returns an array of Aliment objects
     //  */
