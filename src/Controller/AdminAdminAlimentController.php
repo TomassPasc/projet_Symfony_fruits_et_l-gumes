@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Aliment;
+use App\Form\AlimentType;
 use App\Repository\AlimentRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,6 +18,18 @@ class AdminAdminAlimentController extends AbstractController
         $aliments = $repository->findAll();
         return $this->render('admin_admin_aliment/adminAliment.html.twig',[
             "aliments" => $aliments
+        ]);
+    }
+
+    /**
+     * @Route("/admin/aliment{id}", name="admin_aliment_modification")
+     */
+    public function modifierAliment(Aliment $aliment)
+    {
+        $form = $this->createForm(AlimentType::class, $aliment);
+        return $this->render('admin_admin_aliment/modificationAliment.html.twig',[
+           "aliment" => $aliment,
+           "form" => $form->createView()
         ]);
     }
 }

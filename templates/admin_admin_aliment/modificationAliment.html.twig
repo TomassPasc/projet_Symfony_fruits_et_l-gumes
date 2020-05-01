@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification{% endblock %}
+
+{% block monTitre %}Modification {{aliment.nom}}{% endblock %}
+
+{% block body %}
+{{form_start(form)}}
+    {{form_widget(form)}}
+    <input type="submit" class="btn btn-primary" value="modifier">
+{{form_end(form)}}
+
+
+{% endblock %}
