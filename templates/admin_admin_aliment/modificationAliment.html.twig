@@ -6,7 +6,16 @@
 
 {% block body %}
 {{form_start(form)}}
-    {{form_widget(form)}}
+    <div class="row">
+        <div class="col-6">
+            <img src="{{asset('images/' ~ aliment.image)}}" style="width:25%">
+            <div>{{ form_row(form.image)}}</div>
+            <div>{{ form_row(form.nom, {"attr" : {'class':'text-danger bg-success'},"label" : "Nom de l'aliment"}) }}</div>
+        </div>
+        <div class="col-6">
+            {{form_widget(form)}}
+        </div>
+    </div>
     <input type="submit" class="btn btn-primary" value="modifier">
 {{form_end(form)}}
 

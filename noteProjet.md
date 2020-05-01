@@ -1,4 +1,10 @@
-<u>**Repository requête spécifique:**</u>
+
+
+
+
+<u>
+
+Repository requête spécifique:**</u>
 
 <u>fichier AlimentRepository:</u>
 
@@ -146,5 +152,89 @@ POur utiliser bootstrap:
 
 ```
  form_themes: ['bootstrap_4_layout.html.twig']
+```
+
+
+
+<u>mise en forme du formulaire:</u>
+
+```twig
+{% block body %}
+
+{{form_start(form)}}
+
+    <div class="row">
+
+        <div class="col-6">
+
+            <img src="{{asset('images/' ~ aliment.image)}}" style="width:25%">
+
+            <div>{{ form_row(form.image)}}</div>
+
+            <div>{{ form_row(form.nom, {"attr" : {'class':'text-danger bg-success'},"label" : "Nom de l'aliment"}) }}</div>
+
+​    </div>
+
+        <div class="col-6">
+
+​      {{form_widget(form)}}
+
+​    </div>
+
+  </div>
+
+  <input type="submit" class="btn btn-primary" value="modifier">
+
+{{form_end(form)}}
+
+
+
+
+
+{% endblock %}
+```
+
+
+
+  <u>le controller modifier:</u>
+
+```php
+public function modifierAliment(Aliment $aliment, Request $request, EntityManagerInterface $manager)
+
+  {
+
+
+
+   $form = $this->createForm(AlimentType::class, $aliment);
+
+
+
+   $form->handleRequest($request);
+
+
+
+​    if($form->isSubmitted() && $form->isValid()){
+
+​      $manager->persist($aliment);
+
+​      $manager->flush();
+
+​      return $this->redirectToRoute("admin_aliment");
+
+​    }
+
+
+
+​    return $this->render('admin_admin_aliment/modificationAliment.html.twig',[
+
+​      "aliment" => $aliment,
+
+​      "form" => $form->createView()
+
+​    ]);
+
+  }
+
+}
 ```
 
