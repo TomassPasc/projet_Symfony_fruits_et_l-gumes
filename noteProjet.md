@@ -238,3 +238,49 @@ public function modifierAliment(Aliment $aliment, Request $request, EntityManage
 }
 ```
 
+
+
+
+
+<u>suppression</u>
+
+​    <u>vue:</u>
+
+```twig
+  <td>
+
+                <a class="btn btn-secondary" href="{{path("admin_aliment_modification", {'id' : aliment.id})}}">Modifier</a>
+
+​        <form method="POST" style="display:inline-block" action="{{path("admin_aliment_suppression", {'id' : aliment.id})}}" onsubmit="return confirm("confirmer la suppression ?")">
+
+​          <input type="hidden" name ="_method" value="delete">
+
+​          <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ aliment.id)}}">
+
+​          <input type="submit" class="btn btn-danger" value="supprimer">
+
+​        </form>
+
+​      </td>
+```
+
+<u>controller:</u>
+
+```php
+ public function supprimer(Aliment $aliment, Request $request, EntityManagerInterface $manager)
+
+  {
+
+​    if ($this->isCsrfTokenValid("SUP". $aliment->getId(), $request->get('_token')))
+
+​    {
+
+​    $manager->remove($aliment);
+
+​    $manager->flush();
+
+​    return $this->redirectToRoute("admin_aliment");
+
+​    }
+```
+
