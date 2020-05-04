@@ -325,3 +325,38 @@ $modif = $aliment->getId() !== null;
 ```
 
 message flash pour la modif et l'ajout.
+
+
+
+
+
+<u>**exemple validator:**</u>
+
+dans entity:
+
+```php
+use Symfony\Component\Validator\Constraints as Assert;
+```
+
+
+
+```php
+  /**
+
+   \* @ORM\Column(type="string", length=255)
+
+   \* @Assert\Length(
+
+   \*   min = 3,
+
+   \*   max = 15,
+
+   \*   minMessage = "Un minimum de 3 caractères",
+
+   \*   maxMessage = "un maximum de 15 caractère"
+
+   \* )
+
+   */
+```
+
