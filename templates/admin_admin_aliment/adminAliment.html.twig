@@ -6,6 +6,13 @@
 
 {% block body %}
 
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{message}}
+    </div>
+
+{% endfor %}
+
 <a class="btn btn-success" href="{{path("admin_aliment_creation")}}">Ajouter</a>
 <table class="table">
     <tr class="table-primary">
