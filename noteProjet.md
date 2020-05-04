@@ -284,3 +284,44 @@ public function modifierAliment(Aliment $aliment, Request $request, EntityManage
 ​    }
 ```
 
+
+
+
+
+**AJouter un message flash**
+
+<u>vue pour le flash:</u>
+
+```twig
+{% block body %}
+
+
+
+{% for message in app.flashes('success') %}
+
+    <div class="alert alert-success">
+
+​    {{message}}
+
+  </div>
+
+
+
+{% endfor %}
+```
+
+
+
+<u>controller:</u>
+
+```php
+$modif = $aliment->getId() !== null;
+```
+
+
+
+```php
+ $this->addFlash("success", ($modif) ? "La modification a bien été effectuée" : "L'ajout a bien été effectué");
+```
+
+message flash pour la modif et l'ajout.
