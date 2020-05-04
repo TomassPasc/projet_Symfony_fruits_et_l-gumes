@@ -360,3 +360,66 @@ use Symfony\Component\Validator\Constraints as Assert;
    */
 ```
 
+<u>**upload image:**</u>
+
+installer le bundle vich:
+
+```bash
+composer require vich/uploader-bundle
+```
+
+
+
+dans config/vich.yaml:
+
+vi
+
+```yaml
+ch_uploader:
+
+  db_driver: orm
+
+
+
+  mappings:
+
+​    aliments_images:
+
+​      uri_prefix: /images/aliments
+
+​      upload_destination: '%kernel.project_dir%/public/images/aliments'
+	  namer: Vich\UploaderBundle\Naming\SmartUniqueNamer //pour le naming
+
+```
+
+
+
+Ajout de la colonne update_at en bdd:
+
+~~~bash
+$ 
+
+```
+bin/console make:entity aliment
+
+ Your entity already exists! So let's add some new fields!
+
+ New property name (press <return> to stop adding fields):
+
+ > updated_at
+
+ Field type (enter ? to see all types) [datetime]:
+
+ >
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+
+ >
+
+ updated: src/Entity/Aliment.php
+```
+
+
+~~~
+
+
