@@ -16,15 +16,27 @@
 
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Aliments
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{path('aliments')}}">aliments</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{path('admin_aliment')}}">administration</a>
-                    </div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Aliments
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{path('aliments')}}">aliments</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{path('admin_aliment')}}">administration</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Types
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{path('types')}}">types</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="">administration</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </nav>
         <h1 class="border border-primary rounded p-2 m-2 text-white bg-info">{% block monTitre %}{% endblock %}</h1>
