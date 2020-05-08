@@ -423,3 +423,11 @@ bin/console make:entity aliment
 ~~~
 
 
+
+**ajout type en bdd**
+
+```bash
+bin/console doctrine:fixtures:load --append
+```
+
+--append permet de faire des modif sur une bdd déjà existante.

@@ -91,6 +91,11 @@ class Aliment
      */
     private $updated_at;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Type", inversedBy="aliments")
+     */
+    private $type;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -188,6 +193,18 @@ class Aliment
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getType(): ?Type
+    {
+        return $this->type;
+    }
+
+    public function setType(?Type $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }
