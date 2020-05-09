@@ -142,7 +142,11 @@ $form = $this->createForm(AlimentType::class, $aliment);
 {% endblock %}
 ```
 
+form_start: démarre le formulaire.
 
+form_widget: affiche tout le formulaire
+
+form_end:termine l'affichage du formulaire.
 
 <u>**fichier config/twig.yaml**</u>
 

@@ -38,7 +38,7 @@
             <td>{{aliment.lipide}}</td>
             <td>
                 <a class="btn btn-secondary" href="{{path("admin_aliment_modification", {'id' : aliment.id})}}">Modifier</a>
-                <form method="POST" style="display:inline-block" action="{{path("admin_aliment_suppression", {'id' : aliment.id})}}" onsubmit="return confirm("confirmer la suppression ?")">
+                <form method="POST" style="display:inline-block" action="{{path("admin_aliment_suppression", {'id' : aliment.id})}}" onsubmit="return confirm('confirmer la suppression ?')">
                     <input type="hidden" name ="_method" value="delete">
                     <input type="hidden" name="_token" value="{{csrf_token('SUP' ~ aliment.id)}}">
                     <input type="submit" class="btn btn-danger" value="supprimer">
