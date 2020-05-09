@@ -103,7 +103,7 @@ class Aliment
 
         return $this;
     }
-
+    
     public function getProteine(): ?float
     {
         return $this->proteine;
