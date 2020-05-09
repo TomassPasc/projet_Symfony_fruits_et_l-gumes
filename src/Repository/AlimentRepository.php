@@ -20,10 +20,10 @@ class AlimentRepository extends ServiceEntityRepository
     }
 
 
-    public function getAlimentParPropriete($propriete, $signe, $valeur){
+    public function getAlimentParNbCalories($calorie){
         return $this->createQueryBuilder('aliment') //équivaut à SELECT * form la table aliment
-        ->andWhere('aliment.'.$propriete.' '.$signe. ' :val')
-        ->setParameter('val', $valeur)
+        ->andWhere('aliment.calorie < :val')
+        ->setParameter('val', $calorie)
         ->getQuery() //récuppère la query
         ->getResult() //réccupère le résultat de la query
         ;

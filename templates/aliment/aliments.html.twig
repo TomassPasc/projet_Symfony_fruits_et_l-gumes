@@ -4,9 +4,9 @@
 
 {% block monTitre %}Liste des aliments
     {% if isCalorie %}
-        ayant moins de 50 calories
-    {% elseif isGlucide %}
-        ayant moins de 10 glucides
+
+    ayant moins de 50 calories
+
     {% endif %}
 {% endblock %}
 
@@ -14,9 +14,7 @@
 
 
 {% block body %}
-    <a href="{{path("aliments")}}" class="btn btn-primary">Tous les aliments</a>
     <a href="{{path("alimentsParCalorie", {"calorie":50})}}" class="btn btn-primary">Aliments contenant moins de 50 calories</a>
-    <a href="{{path("alimentsParGlucide", {"glucide":10})}}" class="btn btn-primary">Aliments contenant moins de 10 glucides</a>
     <div class="row">
         {% for aliment in aliments %}
             <div class="col-12 col-md-6 col-lg-4 col-xl-3">
